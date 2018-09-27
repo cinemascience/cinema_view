@@ -1,0 +1,17 @@
+#!/bin/sh
+
+BROWSER="Firefox"
+
+cp index.html test_single.html
+
+sed 's/data\/sphere.cdb/data\/sphere.cdb\", \"data\/sphere.cdb/' index.html > test_double.html
+
+open -a $BROWSER test_single.html &
+open -a $BROWSER test_double.html &
+
+sleep 2
+
+rm -f test_single.html
+rm -f test_double.html
+
+
