@@ -29,4 +29,6 @@ Then, view the `index.html` file in the Firefox browser. A single database will 
 <table>
 </p>
 
+## Contact
 
+Contact `cinema-info@lanl.gov` for more information.
