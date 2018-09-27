@@ -1,6 +1,6 @@
-## Cinema:Compare repository 
+## Cinema:Compare repository, Release v1.0 
 
-A simple viewer that compares several Cinema databases.
+A simple viewer that compares several Cinema databases. It can also be used to view a single database, and is easily customizable to include other elements through direct editing of the `html` or `json`.
 
 ## Using the viewer
 
@@ -22,8 +22,8 @@ Then, view the `index.html` file in the Firefox browser. A single database will 
 <td><img src="doc/img/double.png" width="400" border="1"/></td>
 </tr>
 <tr>
-<td>Caption for single</td>
-<td>Caption for double</td>
+<td>Screen capture of the viewer with a single database. The UI creates one slider per column in the database.</td>
+<td>Screen capture of the viewer with two databases. The UI creates one slide for each column in the databases, assuming both share the same columns. If either database does not have a file for the set of parameters, a blank image is shown.</td>
 </tr>
 
 <table>
