@@ -18,8 +18,8 @@ Then, view the `index.html` file in the Firefox browser. A single database will 
 <p align="center">
 <table>
 <tr>
-<td><img src="doc/img/single.png" width="400" border="1"/></td>
-<td><img src="doc/img/double.png" width="400" border="1"/></td>
+<td width="50%"><img src="doc/img/single.png" width="400" border="1"/></td>
+<td width="50%"><img src="doc/img/double.png" width="400" border="1"/></td>
 </tr>
 <tr>
 <td>Screen capture of the viewer with a single database. The UI creates one slider per column in the database.</td>
