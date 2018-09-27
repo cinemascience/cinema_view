@@ -10,8 +10,8 @@ To test this release:
 <p align="center">
 <table>
 <tr>
-<td width="50%"><img src="doc/img/single.png" width="400" border="1"/></td>
-<td width="50%"><img src="doc/img/double.png" width="400" border="1"/></td>
+<td width="50%"><img src="img/single.png" width="400" border="1"/></td>
+<td width="50%"><img src="img/double.png" width="400" border="1"/></td>
 </tr>
 <tr>
 <td>Screen capture of the viewer with a single database.</td>
