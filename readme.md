@@ -15,8 +15,8 @@ To use the viewer, edit the `index.html` file, and change the value of the array
 
 Then, view the `index.html` file in the Firefox browser. A single database will be shown like this, with one slider present for every column in the Cinema databse:
 
-<center>
-<img src="doc/img/single.png" width="400"/>
-</center>
+<p align="center">
+<img src="doc/img/single.png" width="400" border="1px"/>
+</p>
 
 
