@@ -2,7 +2,7 @@
 
 To test this release:
 
-- Maker sure `Firefox` is installed. If necessary, edit the script at `` to correctly call `Firefox`.
+- Maker sure `Firefox` is installed. If necessary, edit the script `doc/testing/1.0/create_testplan` to correctly call `Firefox`.
 - cd to the main repository directory
 - run `./doc/testing/1.0/create_testplan`
 - The script creates two files: `test_single.html` and `test_double.html`, then opens `Firefox` on those files. The files are then deleted after a short pause. The two browsers should look like the two below.
