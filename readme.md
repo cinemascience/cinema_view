@@ -1,33 +1,30 @@
-## Cinema:Compare repository, Release v1.0 
+## Cinema:Compare repository, Release v1.0
 
 A simple viewer that compares several Cinema Spec D databases. It can also be used to view a single database, and is easily customizable to include other elements through direct editing of the `html` or `json`.
 
 ## Using the viewer
 
-To use the viewer, edit the `index.html` file, and change the value of the array named `dataSets` to include the path to your Cinema Spec D database:
+To use the viewer, edit the `index.html` file, and change the value of the array named `dataSets` to include the path to your Cinema Spec D database.  Uncomment the appropriate line to choose to view the single example database (a sphere) or the multiple example databases (a Sedov blast wave).  
 
 
 ```
-    // START: Array of databases to view
-    var dataSets = [ "data/sphere.cdb" ];
-    // END : Array of databases to view
+// START: Array of databases to view
+// Single example Cinema database -- comment out for multiple example test
+ var dataSets = [  "data/sphere.cdb"];
+
+// Multiple example Cinema databases -- comment out for single example test
+// var dataSets = [  "data/sedov1.cdb" , "data/sedov2.cdb" , "data/sedov3.cdb"];
+// END : Array of databases to view
+
 ```   			
 
-Then, view the `index.html` file in the Firefox browser. A single database will be shown like this, with one slider present for every column in the Cinema databse:
+Then, view the `index.html` file in the Firefox browser.  The single database will show the example sphere, with one slider present for every column in the Cinema databse:
 
-<p align="center">
-<table>
-<tr>
-<td width="50%"><img src="doc/img/single.png" width="400" border="1"/></td>
-<td width="50%"><img src="doc/img/double.png" width="400" border="1"/></td>
-</tr>
-<tr>
-<td>Screen capture of the viewer with a single database. The UI creates one slider per column in the database.</td>
-<td>Screen capture of the viewer with two databases. The UI creates one slide for each column in the databases, assuming both share the same columns. If either database does not have a file for the set of parameters, a blank image is shown.</td>
-</tr>
+<img src="doc/img/single.png" width="300" border="1"/>
 
-<table>
-</p>
+The multiple database comparison has the same data rendered in different colormaps and opacity settings.  Setting phi=-60 and theta=0, you can see the blast wave develop as you increase time:
+
+<img src="doc/img/triple.png" width="400" border="1"/>
 
 ## Contact
 

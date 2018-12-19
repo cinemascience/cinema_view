@@ -11,7 +11,7 @@
 <body>
 <div class="container">
 <header>
-    <h2>Cinema:Compare</h2>
+    <h2>CinemaCompare</h2>
 </header>
 
 <div id="resultsArea">
@@ -32,7 +32,7 @@
 </div>
 
    		<script>
-			function onlyUnique(value, index, self) { 
+			function onlyUnique(value, index, self) {
 			    return self.indexOf(value) === index;
 			}
 
@@ -45,10 +45,14 @@
 				return key;
 			}
 
-			// START: Array of databases to view
-   			var dataSets = [ "data/sphere.cdb" ];
+      // START: Array of databases to view
+      // Single example Cinema database -- comment out for multiple example test
+       var dataSets = [  "data/sphere.cdb"];
+
+      // Multiple example Cinema databases -- comment out for single example test
+      // var dataSets = [  "data/sedov1.cdb" , "data/sedov2.cdb" , "data/sedov3.cdb"];
 			// END : Array of databases to view
-   			
+
    			var dataResults = null;
    			var dataValues = null;
    			var query = {};
@@ -94,7 +98,7 @@
 			function updateResults() {
 				dataResults.forEach(function(result, index) {
 		   						var imgSrcKey = getLookupKey(result.keys, query);
-		   						if (imgSrcKey in result.lookup) {	
+		   						if (imgSrcKey in result.lookup) {
 			   						var imgSrc = dataSets[index] + "/" +result.lookup[imgSrcKey]["FILE"];
 				   					images[index].img.attr("src", imgSrc);
 		   						}
@@ -170,7 +174,7 @@
 
 					images.push({img: img});
 
-		   			if (imgSrcKey in result.lookup) {	
+		   			if (imgSrcKey in result.lookup) {
 			   			var imgSrc = dataSets[index] + "/" + result.lookup[imgSrcKey]["FILE"];
 				   		images[index].img.attr("src", imgSrc);
 		   			}
@@ -180,7 +184,7 @@
 
 				});
 			}
-   			
+
    		</script>
    </body>
 </html>
