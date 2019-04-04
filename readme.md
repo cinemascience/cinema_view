@@ -4,7 +4,7 @@ A simple viewer that compares several Cinema Spec D databases. It can also be us
 
 ## Using the viewer
 
-To use the viewer, edit the `index.html` file, and change the value of the array named `dataSets` to include the path to your Cinema Spec D database.  Uncomment the appropriate line to choose to view the single example database (a sphere) or the multiple example databases (a Sedov blast wave).  
+To use the viewer, edit the `cinema_compare.html` file, and change the value of the array named `dataSets` to include the path to your Cinema Spec D database.  Uncomment the appropriate line to choose to view the single example database (a sphere) or the multiple example databases (a Sedov blast wave).  
 
 
 ```
@@ -18,7 +18,7 @@ To use the viewer, edit the `index.html` file, and change the value of the array
 
 ```   			
 
-Then, view the `index.html` file in the Firefox browser.  The single database will show the example sphere, with one slider present for every column in the Cinema databse:
+Then, view the `cinema_compare.html` file in the Firefox browser.  The single database will show the example sphere, with one slider present for every column in the Cinema databse:
 
 <img src="doc/img/single.png" width="300" border="1"/>
 
