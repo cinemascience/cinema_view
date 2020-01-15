@@ -19,6 +19,12 @@
     <div class="imageArea" id="imageArea"></div>
     <div class="sliderArea">
         <div id="sliderContainer" class="sliderContainer">
+            <div id="inputs">
+                Input Dataset: <input type="text" name="input" id="dataset">
+                <button onClick="window.location.reload();">Load</button>
+                <br><br>
+
+            </div>
             <div>
                 <div>Image Size</div>
                 <input type="range" min="1" max="100" id="imageSize" step="1">
@@ -46,9 +52,15 @@
 				return key;
 			}
 
-            var dataSets = ["data/sphere.cdb"];
-            // START: add code to manage databases to view 
-            // END:   add code to manage databases to view 
+            // Read dataset, else set to default
+            var datasettoLoad = document.getElementById('dataset').value;
+            if (datasettoLoad === "")
+                datasettoLoad = "data/sphere.cdb";
+
+            //var dataSets = ["data/sphere.cdb"];
+            var dataSets = [  datasettoLoad ];
+            // START: add code to manage databases to view
+            // END:   add code to manage databases to view
 
    			var dataResults = null;
    			var dataValues = null;
