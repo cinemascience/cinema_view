@@ -20,11 +20,11 @@
     <div class="sliderArea">
         <div id="sliderContainer" class="sliderContainer">
             <div id="inputs">
-				<p>
-					Input comma seperated dataset names
-					<textarea rows="3" cols="30" name="comment" id="dataset"></textarea>
-					<button onClick="window.location.reload();">Load</button>
-				</p>
+                <p>
+                    Input comma seperated dataset names
+                    <textarea rows="3" cols="30" name="comment" id="dataset"></textarea>
+                    <button onClick="window.location.reload();">Load</button>
+                </p>
             </div>
             <div>
                 <div>Image Size</div>
@@ -38,6 +38,7 @@
 <footer>&nbsp</footer>
 
 </div>
+
    		<script>
 			function onlyUnique(value, index, self) {
 			    return self.indexOf(value) === index;
@@ -52,7 +53,9 @@
 				return key;
 			}
 
-            // Read dataset, else set to default
+
+			//
+			// Code that allow custom datasets to read in
 			textareaIsEmpty = false;
 			if (document.getElementById("dataset").value == '')
 				textareaIsEmpty = true;
@@ -64,12 +67,13 @@
 			{
 				datasettoLoad = document.getElementById('dataset').value.split(',');
 			}
-
-			console.log("dbs: ", datasettoLoad)
-
 			var dataSets = datasettoLoad;
-            // START: add code to manage databases to view
-            // END:   add code to manage databases to view
+
+			// Previously the above was
+            //var dataSets = ["data/sphere.cdb"];
+
+            // START: add code to manage databases to view 
+            // END:   add code to manage databases to view 
 
    			var dataResults = null;
    			var dataValues = null;
