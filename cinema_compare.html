@@ -2,36 +2,56 @@
 <html>
 
 <head>
-    <meta app="cinema:compare" version="1.0">
+	<style>
+		p.slider_area {
+		  	font-style: normal;
+		  	font-weight: normal;
+		  	font-size: 1em;
+		  	font-family: "Geneva";
+		}
+
+		.flex-container {
+		  	display: flex;
+		  	flex-wrap: wrap;
+		}
+	</style>
+    <meta app="Cinema:compare" version="1.1">
     <meta charset="utf-8">
-    <link rel='stylesheet' href='cinema/compare/1.0/css/compare.css'>
-    <link rel='stylesheet' href='cinema/compare/1.0/css/common.css'>
+    <link rel='stylesheet' href='cinema/compare/css/compare.css'>
+    <link rel='stylesheet' href='cinema/compare/css/common.css'>
     <script src='cinema/lib/d3.v4.min.js'></script>
+    <link rel="stylesheet" href="cinema/compare/css/select-css.css">
+    <link rel="stylesheet" href="cinema/compare/css/range-css.css">
 </head>
 
 <body>
 <div class="container">
 <header>
-    <h2>CinemaCompare</h2>
+    <h1>Cinema:Compare</h1>
 </header>
 
 <div id="resultsArea">
-    <div class="imageArea" id="imageArea"></div>
+	
+    <div class="imageArea flex-container" id="imageArea"></div>
     
     <div class="sliderArea">
     	<div id="delectDB">
-	    	<p> Select Dataset:
-	    		<select id="dbList" onchange="optionSelected();">
+	    	<p class="slider_area"> Select Dataset:
+	    		<select id="dbList" class="select-css" onchange="optionSelected();">
 				</select>
 			</p>
 		</div>
     	<div id="imgSize">
-            <div> Image Size </div>
-            <input type="range" min="1" max="100" id="imageSize" step="1">
+    		<p class="slider_area">
+            	<div>Image Size:</div>
+            	<input type="range" min="1" max="100" id="imageSize" class="slidecontainer" step="1">
+        	</p>
         </div>
-        <div id="sliderContainer" class="sliderContainer"> </div>
-  
+        <p class="slider_area">
+        	<div id="sliderContainer" class="sliderContainer"> </div>
+        </p>
     </div>
+	
 </div>
 
 <footer>&nbsp</footer>
@@ -39,10 +59,11 @@
 </div>
    		<script>
 
-   			function loadJSON(callback) {
+   			function loadJSON(callback) 
+   			{
 			  	var xobj = new XMLHttpRequest();
 			  	xobj.overrideMimeType("application/json");
-			  	xobj.open('GET', 'data/compare.json', true); // Replace 'my_data' with the path to your file
+			  	xobj.open('GET', 'data/data.json', true); // Replace 'my_data' with the path to your file
 			  	xobj.onreadystatechange = function () {
 			    	if (xobj.readyState == 4 && xobj.status == "200") {
 			    		// Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
@@ -58,7 +79,8 @@
 			    return self.indexOf(value) === index;
 			}
 
-			function getLookupKey(keys, query) {
+			function getLookupKey(keys, query) 
+			{
 				var key = "";
 				keys.forEach(function(item, index) {
 					key += query[item] + "_";
@@ -76,13 +98,13 @@
 			    actual_JSON = JSON.parse(response);
 
 			    var dbs = [];
-			    for (i = 0; i < actual_JSON.entries.length; i++) 
+			    for (i = 0; i < actual_JSON.length; i++) 
 			    {
-				  	dbs.push( actual_JSON.entries[i].database_name );
+				  	dbs.push( actual_JSON[i].database_name );
 				}
 
 				var sel = document.getElementById('dbList');
-				for(var i=0; i <actual_JSON.entries.length; i++) {
+				for(var i=0; i <actual_JSON.length; i++) {
 				    var opt = document.createElement('option');
 				    opt.innerHTML = dbs[i];
 				    opt.value = i;
@@ -103,10 +125,11 @@
                 	div.removeChild(div.firstChild); 
             	} 
 
+
             	// Clear slider area
             	var div = document.getElementById("sliderContainer"); 
             	while(div.firstChild) { 
-                 		div.removeChild(div.firstChild); 
+                 	div.removeChild(div.firstChild); 
             	} 
 
 				
@@ -114,51 +137,22 @@
 				var e = document.getElementById("dbList");
 				var value = e.options[e.selectedIndex].value;
 				var text = e.options[e.selectedIndex].text;
-				console.log("db: ", value);
 				
 
 				// Parse the json
 				var datasettoLoad = [];
 				var datasetNamestoLoad = [];
-				
-
-
-				for (i=0; i<actual_JSON.entries.length; i++) 
-				    {	
-
-				    	if (i == parseInt(value))
-				    	{
-				    		console.log("actual_JSON.entries[i].databases.length: ", actual_JSON.entries[i].databases.length);
-				    		for (j=0; j<actual_JSON.entries[i].databases.length; j++) 
-				    		{
-				    			console.log("j: ", j);
-					  			datasettoLoad.push( actual_JSON.entries[i].databases[j].location );
-					  			datasetNamestoLoad.push( actual_JSON.entries[i].databases[j].name );
-				    		}
-				    	}
-					}
-
-
-	            // Read dataset, else set to default
-				//textareaIsEmpty = false;
-				//if (document.getElementById("dataset").value == '')
-				//	textareaIsEmpty = true;
-
-				// var datasettoLoad;
-				// if (textareaIsEmpty)
-				// {
-					
-
-				// 	datasettoLoad = ["data/sphere.cdb"];
-				// }
-				// else
-				// {
-				// 	datasettoLoad = document.getElementById('dataset').value.split(',');
-				// }
-
-				//var datasettoLoad = ["data/sphere.cdb"];
-
-				//console.log("dbs: ", datasettoLoad)
+				for (i=0; i<actual_JSON.length; i++) 
+			    {	
+			    	if (i == parseInt(value))
+			    	{
+			    		for (j=0; j<actual_JSON[i].datasets.length; j++) 
+			    		{
+				  			datasettoLoad.push( actual_JSON[i].datasets[j].location );
+				  			datasetNamestoLoad.push( actual_JSON[i].datasets[j].name );
+			    		}
+			    	}
+				}
 
 				var dataSets = datasettoLoad;
 	            // START: add code to manage databases to view
@@ -168,11 +162,13 @@
 	   			var dataValues = null;
 	   			var query = {};
 	   			var images = [];
+	   			var numImages = 0;
 
 	   			var q = d3.queue();
 	   			dataSets.forEach(function(item, index) {
 					q.defer(d3.csv, item + "/data.csv");
 				});
+
 				q.awaitAll(function(error, results) {
 					var values = {};
 					results.forEach(function(item, index) {
@@ -206,27 +202,30 @@
 					doneLoading(results, values);
 				});
 
-				function updateResults() {
+				function updateResults() 
+				{
+					// Called when sliders are moced
 					dataResults.forEach(function(result, index) {
-			   						var imgSrcKey = getLookupKey(result.keys, query);
-			   						if (imgSrcKey in result.lookup) {
-				   						var imgSrc = dataSets[index] + "/" +result.lookup[imgSrcKey]["FILE"];
-					   					images[index].img.attr("src", imgSrc);
-			   						}
-			   						else {
-					   					images[index].img.attr("src", "images/empty.png");
-			   						}
-			   					});
+   						var imgSrcKey = getLookupKey(result.keys, query);
+   						if (imgSrcKey in result.lookup) {
+	   						var imgSrc = dataSets[index] + "/" +result.lookup[imgSrcKey]["FILE"];
+		   					images[index].img.attr("src", imgSrc);
+   						}
+   						else {
+		   					images[index].img.attr("src", "cinema/compare/images/empty.png");
+   						}
+   					});
 				}
 
-				function doneLoading(results, values) {
+				function doneLoading(results, values) 
+				{
 					var imageSizeSlider = d3.select("#imageSize")
 						.property("value", (100/dataSets.length)-1)
 						.on("input", function() {
-							images.forEach(function(item, index) {
-								item.img.style("width","" + imageSizeSlider.node().value + "%");
-								item.img.attr("height", null);
-							});
+							for (i = 0; i < numImages; i++) {
+								var selectedItem = "#image_div_" + i.toString();
+								d3.select(selectedItem).style("width","" + imageSizeSlider.node().value + "%")
+							}
 						});
 
 					dataResults = results;
@@ -241,6 +240,7 @@
 						var slider = sliderDiv.append("div")
 				   			.append("input")
 				   				.attr("type","range")
+				   				.attr("class","slidecontainer")
 				   				.attr("min", "0")
 				   				.attr("max", values[key].length - 1)
 				   				.property("value", "0")
@@ -266,22 +266,34 @@
 				   		query[key] = values[key][0];
 					});
 
+
 					dataResults.forEach(function(result, index) {
+						console.log("index:", index);
+						console.log("val:",imageSizeSlider.node().value);
+						numImages = numImages + 1
 						var imgSrcKey = getLookupKey(result.keys, query);
 
-						var img = d3.select("#imageArea").append("img")
-							.attr("class", "cinemaImage")
-							.attr("src", "images/empty.png")
-							.style("width","" + imageSizeSlider.node().value + "%")
-							.on("load", function() {
-								if (this.src != "images/empty.png") {
-			   						images[index].height = this.height;
-								}
-			   				})
-							.on("error", function() {
-			   					this.src='images/empty.png';
-			   					this.height = images[index].height;
-			   				});
+						var img = d3.select("#imageArea")
+							.append("div")
+								.attr("id", "image_div_" + index.toString())
+								.style("width","" + imageSizeSlider.node().value + "%")
+								.style("text-align","center")
+								.text(datasetNamestoLoad[index])
+
+							.append("img")
+								.attr("class", "cinemaImage")
+								.attr("src", "cinema/compare/images/empty.png")
+								.style("width","100%")
+
+								.on("load", function() {
+									if (this.src != "cinema/compare/images/empty.png") {
+			   							images[index].height = this.height;
+									}
+			   					})
+								.on("error", function() {
+			   						this.src='cinema/compare/images/empty.png';
+			   						this.height = images[index].height;
+			   					});
 
 						images.push({img: img});
 
@@ -290,9 +302,8 @@
 					   		images[index].img.attr("src", imgSrc);
 			   			}
 			   			else {
-					   		images[index].img.attr("src", "images/empty.png");
+					   		images[index].img.attr("src", "cinema/compare/images/empty.png");
 			   			}
-
 					});
 				}
 			}

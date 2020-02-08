@@ -20,27 +20,17 @@ To use Cinema:Compare, you must allow local file access. Do this in the followin
 
 ## Using the viewer
 
-To use the viewer, edit the `cinema_compare.html` file, and change the value of the array named `dataSets` to include the path to your Cinema Spec D database.  Uncomment the appropriate line to choose to view the single example database (a sphere) or the multiple example databases (a Sedov blast wave).  
+To use the viewer, select the database you want to see from the dropdown "Select a database". Test sphere should look like:
+<img src="cinema/testImages/sphere.png" width="300" border="1"/>
+
+while test sedov should look like:
+<img src="cinema/testImages/sedov.png" width="300" border="1"/>
 
 
-```
-// START: Array of databases to view
-// Single example Cinema database -- comment out for multiple example test
- var dataSets = [  "data/sphere.cdb"];
+## Adding a database to the viewer
+To add a database, you must edit the file data/data.json. The first entry in that file describes each of the tages needed. The file has two examples: 1) shere test, for a single dataset and 2) sedov test for comparing 3 datasets.
 
-// Multiple example Cinema databases -- comment out for single example test
-// var dataSets = [  "data/sedov1.cdb" , "data/sedov2.cdb" , "data/sedov3.cdb"];
-// END : Array of databases to view
 
-```   			
-
-Then, view the `cinema_compare.html` file in the Firefox browser.  The single database will show the example sphere, with one slider present for every column in the Cinema databse:
-
-<img src="doc/img/single.png" width="300" border="1"/>
-
-The multiple database comparison has the same data rendered in different colormaps and opacity settings.  Setting phi=-60 and theta=0, you can see the blast wave develop as you increase time:
-
-<img src="doc/img/triple.png" width="400" border="1"/>
 
 ## Contact
 
