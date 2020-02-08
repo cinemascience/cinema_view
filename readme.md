@@ -21,9 +21,11 @@ To use Cinema:Compare, you must allow local file access. Do this in the followin
 ## Using the viewer
 
 To use the viewer, select the database you want to see from the dropdown "Select a database". Test sphere should look like:
+
 <img src="cinema/testImages/sphere.png" width="300" border="1"/>
 
 while test sedov should look like:
+
 <img src="cinema/testImages/sedov.png" width="300" border="1"/>
 
 
