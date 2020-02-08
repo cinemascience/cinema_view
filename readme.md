@@ -3,9 +3,9 @@
 A simple viewer that compares several Cinema Spec D databases. It can also be used to view a single database, and is easily customizable to include other elements through direct editing of the `html` or `json`.
 
 ## A Note on Browser Security
-To use Cinema:Compare, you must allow local file access. Do this in the following way, but be sure to reset these options when you are done:
+To use Cinema:Compare, you **MUST** allow local file access. Do this in the following way, but be sure to reset these options when you are done:
 
-- **Firefox** 
+- **Firefox (preferred)** 
     - in ```about:config```, set ```privacy.file_unique_origin``` to **false**
         This is essential for cinema to work
     - in ```about:config```, set ```security.fileuri.strict_origin_policy``` to **false**
@@ -30,8 +30,9 @@ while test sedov should look like:
 
 
 ## Adding a database to the viewer
-To add a database, you must edit the file data/data.json. The first entry in that file describes each of the tages needed. The file has two examples: 1) shere test, for a single dataset and 2) sedov test for comparing 3 datasets.
-
+To add a database, you must edit the file data/data.json. The first entry in that file describes each of the tages needed. The file has two examples: 
+1. sphere test, for a single dataset
+2. sedov test for comparing 3 datasets.
 
 
 ## Contact
