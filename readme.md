@@ -1,4 +1,4 @@
-## Cinema:Compare repository, Release v1.0
+## Cinema:Compare repository, Release v1.1 beta
 
 A simple viewer that compares several Cinema Spec D databases. It can also be used to view a single database, and is easily customizable to include other elements through direct editing of the `html` or `json`.
 
