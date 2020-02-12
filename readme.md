@@ -22,15 +22,15 @@ To use Cinema:Compare, you **MUST** allow local file access. Do this in the foll
 
 To use the viewer, select the database you want to see from the dropdown "Select a database". Test sphere should look like:
 
-<img src="cinema/testImages/sphere.png" width="300" border="1"/>
+<img src="cinema/testImages/sphere.png" width="500" border="1"/>
 
 while test sedov should look like:
 
-<img src="cinema/testImages/sedov.png" width="300" border="1"/>
+<img src="cinema/testImages/sedov.png" width="500" border="1"/>
 
 
 ## Adding a database to the viewer
-To add a database, you must edit the file data/data.json. The first entry in that file describes each of the tages needed. The file has two examples: 
+To add a database, you must edit the file data/data.json. The first entry in that file describes each of the tags needed, and the file has two examples: 
 1. sphere test, for a single dataset
 2. sedov test for comparing 3 datasets.
 
