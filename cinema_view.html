@@ -15,19 +15,19 @@
 		  	flex-wrap: wrap;
 		}
 	</style>
-    <meta app="Cinema:compare" version="1.1">
+    <meta app="Cinema:View" version="1.1">
     <meta charset="utf-8">
-    <link rel='stylesheet' href='cinema/compare/css/compare.css'>
-    <link rel='stylesheet' href='cinema/compare/css/common.css'>
+    <link rel='stylesheet' href='cinema/view/css/view.css'>
+    <link rel='stylesheet' href='cinema/view/css/common.css'>
     <script src='cinema/lib/d3.v4.min.js'></script>
-    <link rel="stylesheet" href="cinema/compare/css/select-css.css">
-    <link rel="stylesheet" href="cinema/compare/css/range-css.css">
+    <link rel="stylesheet" href="cinema/view/css/select-css.css">
+    <link rel="stylesheet" href="cinema/view/css/range-css.css">
 </head>
 
 <body>
 <div class="container">
 <header>
-    <h1>Cinema:Compare</h1>
+    <h1>Cinema:View</h1>
 </header>
 
 <div id="resultsArea">
@@ -212,7 +212,7 @@
 		   					images[index].img.attr("src", imgSrc);
    						}
    						else {
-		   					images[index].img.attr("src", "cinema/compare/images/empty.png");
+		   					images[index].img.attr("src", "cinema/view/images/empty.png");
    						}
    					});
 				}
@@ -282,16 +282,16 @@
 
 							.append("img")
 								.attr("class", "cinemaImage")
-								.attr("src", "cinema/compare/images/empty.png")
+								.attr("src", "cinema/view/images/empty.png")
 								.style("width","100%")
 
 								.on("load", function() {
-									if (this.src != "cinema/compare/images/empty.png") {
+									if (this.src != "cinema/view/images/empty.png") {
 			   							images[index].height = this.height;
 									}
 			   					})
 								.on("error", function() {
-			   						this.src='cinema/compare/images/empty.png';
+			   						this.src='cinema/view/images/empty.png';
 			   						this.height = images[index].height;
 			   					});
 
@@ -302,7 +302,7 @@
 					   		images[index].img.attr("src", imgSrc);
 			   			}
 			   			else {
-					   		images[index].img.attr("src", "cinema/compare/images/empty.png");
+					   		images[index].img.attr("src", "cinema/view/images/empty.png");
 			   			}
 					});
 				}

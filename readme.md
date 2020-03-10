@@ -1,9 +1,9 @@
-## Cinema:Compare repository, Release v1.1
+## Cinema:View repository, Release v1.1
 
-A simple viewer that displays a single or multiple Cinema databases. These must be image-based Cinema databases following the current CSV-based specification.  Cinema:Compare is is easily customizable to include other elements through direct editing of the `html` or `json`.
+A simple viewer that displays a single or multiple Cinema databases. These must be image-based Cinema databases following the current CSV-based specification.  Cinema:View is is easily customizable to include other elements through direct editing of the `html` or `json`.
 
 ## A Note on Browser Security
-To use Cinema:Compare, you **MUST** allow local file access. Do this in the following way, but be sure to reset these options when you are done:
+To use Cinema:View, you **MUST** allow local file access. Do this in the following way, but be sure to reset these options when you are done:
 
 - **Firefox (preferred)**
     - in ```about:config```, set ```privacy.file_unique_origin``` to **false**
