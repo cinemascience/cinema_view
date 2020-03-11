@@ -6,10 +6,9 @@ A simple viewer that displays a single or multiple Cinema databases. These must 
 To use Cinema:View, you **MUST** allow local file access. Do this in the following way, but be sure to reset these options when you are done:
 
 - **Firefox (preferred)**
-    - in ```about:config```, set ```privacy.file_unique_origin``` to **false**
-        This is essential for cinema to work
-    - in ```about:config```, set ```security.fileuri.strict_origin_policy``` to **false**
-        This allows loading of a file from any folder
+    - type ```about:config``` in the navigaion bar
+        - set ```privacy.file_unique_origin``` to **false**
+        - set ```security.fileuri.strict_origin_policy``` to **false**
 - **Safari**
     - Safari->Preferences->Advanced->Show Develop menu in menu bar
     - Safari->Develop->Disable Local File Restrictions (on)
