@@ -58,13 +58,35 @@
 
 </div>
    		<script>
-            var emptyImage = "cinema/view/1.1/images/empty.png";
+            var emptyImage   = 'cinema/view/1.1/images/empty.png';
+			var databaseList = 'cinema/view/1.1/databases.json';
+
+            var url = window.location.href;
+            var urlArgs = url.split('?');
+
+
+            if (urlArgs.length > 1) {
+                var urlArgPairs = urlArgs[1].split('&');
+
+                // go through all the pairs, and if you find something you expect, deal with it
+                for (var i in urlArgPairs) {
+                    var kvpair = urlArgPairs[i].split('=');
+
+                    // now look for the values you expect, and do something with them
+                    //
+                    // Note that this will not properly handle the case in which both parameters
+                    // are set by url attributes 
+                    if (kvpair[0] == 'databases') {
+                        databaseList = kvpair[1];
+                    }
+                }
+            }
 
    			function loadJSON(callback) 
    			{
 			  	var xobj = new XMLHttpRequest();
 			  	xobj.overrideMimeType("application/json");
-			  	xobj.open('GET', 'cinema/view/1.1/databases.json', true); // Replace 'my_data' with the path to your file
+			  	xobj.open('GET', databaseList, true); // Replace 'my_data' with the path to your file
 			  	xobj.onreadystatechange = function () {
 			    	if (xobj.readyState == 4 && (xobj.status == 0 || xobj.status == 200)) {
 			    		// Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode

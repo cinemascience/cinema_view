@@ -29,10 +29,21 @@ while sedov test should look like:
 
 
 ## Adding a database to the viewer
-Additional databases or sets of databases can be added by editing the file data/databases.json. The first entry in that file describes each of the tags needed, and the file has two examples:
+Additional databases or sets of databases can be added by editing the file `cinema/view/1.1/databases.json`. This is the default location for the databases file, but you can change this as noted below.
+
+The first entry in that file describes each of the tags needed, and the file has two examples:
+
 1. sphere test, for a single dataset
 2. sedov test for comparing 3 datasets.
 
+To change the location of the databases.json` file:
+
+1. directly edit the `cinema_view.html` file and change the value.
+2. add an attribute on the URL when calling the viewer:
+
+```
+    file:///Users/me/data/cinema_view.html?databases=somedirectory/somename.json
+```
 
 ## Contact
 
