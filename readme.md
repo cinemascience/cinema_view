@@ -15,7 +15,7 @@ To use Cinema:View, you **MUST** allow local file access. Do this in the followi
 - **Chrome**
     - open **chrome** with the option ```--disable-web-security```
     - Mac example:
-        - ```open -na "Google Chrome" cinema_compare.html --args --user-data-dir="YOUR_PATH_TO_REPO" --disable-web-security```
+        - ```open -na "Google Chrome" cinema_view.html --args --user-data-dir="YOUR_PATH_TO_REPO" --disable-web-security```
 
 ## Using the viewer
 

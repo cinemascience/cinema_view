@@ -17,11 +17,11 @@
 	</style>
     <meta app="Cinema:View" version="1.1">
     <meta charset="utf-8">
-    <link rel='stylesheet' href='cinema/view/css/view.css'>
-    <link rel='stylesheet' href='cinema/view/css/common.css'>
+    <link rel='stylesheet' href='cinema/view/1.1/css/view.css'>
+    <link rel='stylesheet' href='cinema/view/1.1/css/common.css'>
     <script src='cinema/lib/d3.v4.min.js'></script>
-    <link rel="stylesheet" href="cinema/view/css/select-css.css">
-    <link rel="stylesheet" href="cinema/view/css/range-css.css">
+    <link rel="stylesheet" href="cinema/view/1.1/css/select-css.css">
+    <link rel="stylesheet" href="cinema/view/1.1/css/range-css.css">
 </head>
 
 <body>
@@ -58,14 +58,15 @@
 
 </div>
    		<script>
+            var emptyImage = "cinema/view/1.1/images/empty.png";
 
    			function loadJSON(callback) 
    			{
 			  	var xobj = new XMLHttpRequest();
 			  	xobj.overrideMimeType("application/json");
-			  	xobj.open('GET', 'data/databases.json', true); // Replace 'my_data' with the path to your file
+			  	xobj.open('GET', 'cinema/view/1.1/databases.json', true); // Replace 'my_data' with the path to your file
 			  	xobj.onreadystatechange = function () {
-			    	if (xobj.readyState == 4 && xobj.status == "200") {
+			    	if (xobj.readyState == 4 && (xobj.status == 0 || xobj.status == 200)) {
 			    		// Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
 			    		callback(xobj.responseText);
 			    	}
@@ -212,7 +213,7 @@
 		   					images[index].img.attr("src", imgSrc);
    						}
    						else {
-		   					images[index].img.attr("src", "cinema/view/images/empty.png");
+		   					images[index].img.attr("src", emptyImage);
    						}
    					});
 				}
@@ -282,16 +283,16 @@
 
 							.append("img")
 								.attr("class", "cinemaImage")
-								.attr("src", "cinema/view/images/empty.png")
+								.attr("src", emptyImage)
 								.style("width","100%")
 
 								.on("load", function() {
-									if (this.src != "cinema/view/images/empty.png") {
+                                      if (this.src != emptyImage) { 
 			   							images[index].height = this.height;
 									}
 			   					})
 								.on("error", function() {
-			   						this.src='cinema/view/images/empty.png';
+			   						this.src=emptyImage;
 			   						this.height = images[index].height;
 			   					});
 
@@ -302,7 +303,7 @@
 					   		images[index].img.attr("src", imgSrc);
 			   			}
 			   			else {
-					   		images[index].img.attr("src", "cinema/view/images/empty.png");
+					   		images[index].img.attr("src", emptyImage);
 			   			}
 					});
 				}
