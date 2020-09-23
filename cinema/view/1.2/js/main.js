@@ -1,4 +1,4 @@
-/*
+jsonRequest/*
 A general 3D viewer for Spec-D Cinema databases
 
 Copyright 2017 Los Alamos National Laboratory
@@ -35,16 +35,16 @@ var databaseFile = 'cinema/view/1.2/databases.json'; //this can be overriden wit
 
 function loadJSON(callback)
   {
-	var xobj = new XMLHttpRequest();
-	xobj.overrideMimeType("application/json");
-	xobj.open('GET', databaseFile, true); // Replace 'my_data' with the path to your file
-	xobj.onreadystatechange = function () {
-	if (xobj.readyState == 4 && xobj.status == "200") {
+	var jsonRequest = new XMLHttpRequest();
+	jsonRequest.overrideMimeType("application/json");
+	jsonRequest.open('GET', databaseFile, true); // Replace 'my_data' with the path to your file
+	jsonRequest.onreadystatechange = function () {
+	if (jsonRequest.readyState == 4 && jsonRequest.status == "200") {
 			// Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-			callback(xobj.responseText);
+			callback(jsonRequest.responseText);
 	   }
 	};
-	xobj.send(null);
+	jsonRequest.send(null);
 	}
 
 
@@ -88,7 +88,7 @@ loadJSON(function(response)
   });
 
 function optionSelected()
-	{  
+	{
 // Clear image area
 	   var div = document.getElementById("imageArea");
 		 while(div.firstChild) {
